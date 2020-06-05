@@ -59,6 +59,30 @@ function App() {
         setTasks(updatedTasks);
     };
 
+    const moveTaskLeft = (taskId) => {
+        const updatedTasks = tasks.map(el => {
+            if (el.id === taskId) {
+                if (el.status === 'in progress') {
+                    return {
+                        ...el,
+                        status: 'todo'
+                    }
+                } else if (el.status === 'resolved') {
+                    return {
+                        ...el,
+                        status: 'in progress'
+                    }
+                } else
+                    return {
+                        ...el,
+                        status: 'resolved'
+                    }
+            } else
+                return el;
+        });
+        setTasks(updatedTasks);
+    };
+
     return (
         <div>
             <div className="container">
@@ -78,17 +102,19 @@ function App() {
                               status="in progress"
                               tasks={tasks}
                               deleteTask={deleteTask}
+                              moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
                     <TaskList name="Resolved"
                               status="resolved"
                               tasks={tasks}
                               deleteTask={deleteTask}
+                              moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
                     <TaskList name="Closed"
                               status="closed"
                               tasks={tasks}
                               deleteTask={deleteTask}
-                              moveTaskRight={moveTaskRight}/>
+                              moveTaskLeft={moveTaskLeft}/>
                 </div>
             </div>
         </div>

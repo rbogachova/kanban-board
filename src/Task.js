@@ -10,9 +10,13 @@ function Task(props) {
         props.moveTaskRight(props.id);
     };
 
+    const moveTaskLeft = () => {
+        props.moveTaskLeft(props.id);
+    };
+
 
     return (
-        <div className="card">
+        <div className="card shadow bg-white rounded">
             <div className="card-body">
                 <p className="card-text">{props.taskName}</p>
                 <button type="button"
@@ -26,6 +30,14 @@ function Task(props) {
                             className="btn btn-outline-success btn-sm float-right"
                             onClick={moveTaskRight}>
                         <i className="fa fa-arrow-right"/>
+                    </button>
+                }
+                {
+                    props.status !== 'todo' &&
+                    <button type="button"
+                            className="btn btn-outline-success btn-sm float-right"
+                            onClick={moveTaskLeft}>
+                        <i className="fa fa-arrow-left"/>
                     </button>
                 }
 
