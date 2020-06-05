@@ -5,7 +5,7 @@ import TaskList from "./TaskList";
 
 const initialTasks = [
     {id: 1, name: 'Do Components', status: 'todo'},
-    {id: 2, name: 'Watch last lesson video', status: 'resolved'},
+    {id: 2, name: 'Watch Last Lesson Video', status: 'resolved'},
     {id: 3, name: 'Learn React', status: 'in progress'},
     {id: 4, name: 'Write Todo App from Scratch', status: 'closed'},
     {id: 5, name: 'Make Kanban Board', status: 'todo'}
