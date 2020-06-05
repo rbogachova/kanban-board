@@ -32,7 +32,7 @@ function Task(props) {
                 {
                     props.taskListStatus !== 'closed' &&
                     <button type="button"
-                            className="btn btn-outline-success btn-sm float-right"
+                            className="btn btn-sm float-right"
                             onClick={moveTaskRight}>
                         <i className="fa fa-arrow-right"/>
                     </button>
@@ -41,7 +41,7 @@ function Task(props) {
                 {
                     props.taskListStatus !== 'todo' &&
                     <button type="button"
-                            className="btn btn-outline-success btn-sm float-right"
+                            className="btn btn-sm float-right"
                             onClick={moveTaskLeft}>
                         <i className="fa fa-arrow-left"/>
                     </button>
