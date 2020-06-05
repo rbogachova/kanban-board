@@ -38,16 +38,26 @@ function App() {
     const moveTaskRight = (taskId) => {
         const updatedTasks = tasks.map(el => {
             if (el.id === taskId) {
-                return {
-                    ...el,
-                    status: 'in progress'
-                };
+                if (el.status === 'todo') {
+                    return {
+                        ...el,
+                        status: 'in progress'
+                    }
+                } else if (el.status === 'in progress') {
+                    return {
+                        ...el,
+                        status: 'resolved'
+                    }
+                } else
+                    return {
+                        ...el,
+                        status: 'closed'
+                    }
             } else
                 return el;
         });
         setTasks(updatedTasks);
     };
-
 
     return (
         <div>

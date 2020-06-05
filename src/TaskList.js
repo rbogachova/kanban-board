@@ -9,6 +9,7 @@ function TaskList(props) {
             {props.tasks.filter(el => el.status === props.status).map(el =>
                 <Task taskName={el.name}
                       id={el.id}
+                      status={el.status}
                       deleteTask={props.deleteTask}
                       moveTaskRight={props.moveTaskRight}/>
             )}
