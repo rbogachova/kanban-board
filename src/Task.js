@@ -1,24 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Task(props) {
-
     const deleteTask = () => {
-        props.deleteTask(props.id);
+        props.deleteTask(props.task.id);
     };
 
     const moveTaskRight = () => {
-        props.moveTaskRight(props.id);
+        props.moveTaskRight(props.task.id);
     };
 
     const moveTaskLeft = () => {
-        props.moveTaskLeft(props.id);
+        props.moveTaskLeft(props.task.id);
     };
-
 
     return (
         <div className="card shadow bg-white rounded">
             <div className="card-body">
-                <p className="card-text">{props.taskName}</p>
+                <button>Priority: {props.task.priority}</button>
+                <p className="card-text">{props.task.name}</p>
                 <button type="button"
                         className="btn btn-outline-success btn-sm float-left"
                         onClick={deleteTask}>

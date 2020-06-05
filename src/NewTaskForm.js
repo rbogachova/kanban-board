@@ -13,7 +13,7 @@ function NewTaskForm(props) {
     };
 
     const submitTask = () => {
-        props.submitTask(taskInput);
+        props.addTask(taskInput);
         setTaskInput('');
     };
 

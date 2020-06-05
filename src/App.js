@@ -4,11 +4,11 @@ import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
 
 const initialTasks = [
-    {id: 1, name: 'Do Components', status: 'todo'},
-    {id: 2, name: 'Watch Last Lesson Video', status: 'resolved'},
-    {id: 3, name: 'Learn React', status: 'in progress'},
-    {id: 4, name: 'Write Todo App from Scratch', status: 'closed'},
-    {id: 5, name: 'Make Kanban Board', status: 'todo'}
+    {id: 1, name: 'Do Components', status: 'todo', priority: 3},
+    {id: 2, name: 'Watch Last Lesson Video', status: 'resolved', priority: 2},
+    {id: 3, name: 'Learn React', status: 'in progress', priority: 1},
+    {id: 4, name: 'Write Todo App from Scratch', status: 'closed', priority: 2},
+    {id: 5, name: 'Make Kanban Board', status: 'todo', priority: 1}
 ];
 
 function App() {
@@ -23,10 +23,10 @@ function App() {
         setIsAddTaskFormOpen(false);
     };
 
-    const submitTask = (taskName) => {
+    const addTask = (taskName) => {
         setIsAddTaskFormOpen(false);
         const updatedTasks = [...tasks];
-        updatedTasks.push({id: Math.random(), name: taskName, status: 'todo'});
+        updatedTasks.push({id: Math.random(), name: taskName, status: 'todo', priority: null});
         setTasks(updatedTasks);
     };
 
@@ -90,28 +90,28 @@ function App() {
                 <NewTaskForm isAddTaskFormOpen={isAddTaskFormOpen}
                              openAddTaskForm={openAddTaskForm}
                              cancelAddTask={cancelAddTask}
-                             submitTask={submitTask}/>
+                             addTask={addTask}/>
                 <hr/>
                 <div className="row">
-                    <TaskList name="To Do"
-                              status="todo"
+                    <TaskList taskListName="To Do"
+                              taskListStatus="todo"
                               tasks={tasks}
                               deleteTask={deleteTask}
                               moveTaskRight={moveTaskRight}/>
-                    <TaskList name="In Progress"
-                              status="in progress"
-                              tasks={tasks}
-                              deleteTask={deleteTask}
-                              moveTaskLeft={moveTaskLeft}
-                              moveTaskRight={moveTaskRight}/>
-                    <TaskList name="Resolved"
-                              status="resolved"
+                    <TaskList taskListName="In Progress"
+                              taskListStatus="in progress"
                               tasks={tasks}
                               deleteTask={deleteTask}
                               moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
-                    <TaskList name="Closed"
-                              status="closed"
+                    <TaskList taskListName="Resolved"
+                              taskListStatus="resolved"
+                              tasks={tasks}
+                              deleteTask={deleteTask}
+                              moveTaskLeft={moveTaskLeft}
+                              moveTaskRight={moveTaskRight}/>
+                    <TaskList taskListName="Closed"
+                              taskListStatus="closed"
                               tasks={tasks}
                               deleteTask={deleteTask}
                               moveTaskLeft={moveTaskLeft}/>

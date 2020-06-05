@@ -7,17 +7,17 @@ function TaskList(props) {
         <div className="col-sm">
             <div className="card shadow bg-white rounded">
                 <div className="card-body">
-                    {props.name}
+                    {props.taskListName}
                 </div>
             </div>
-            {props.tasks.filter(el => el.status === props.status).map(el =>
-                <Task taskName={el.name}
-                      id={el.id}
-                      status={el.status}
-                      deleteTask={props.deleteTask}
-                      moveTaskLeft={props.moveTaskLeft}
-                      moveTaskRight={props.moveTaskRight}/>
-            )}
+            {props.tasks.filter(el => el.status === props.taskListStatus)
+                .sort((a, b) => a.priority - b.priority)
+                .map(el =>
+                    <Task task={el}
+                          deleteTask={props.deleteTask}
+                          moveTaskLeft={props.moveTaskLeft}
+                          moveTaskRight={props.moveTaskRight}/>
+                )}
         </div>
     );
 }
