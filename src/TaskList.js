@@ -7,7 +7,7 @@ function TaskList(props) {
         <div className="col-sm">
             <div className="card shadow bg-white rounded">
                 <div className="card-body">
-                    {props.taskListName}
+                    <h5>{props.taskListName}</h5>
                 </div>
             </div>
 

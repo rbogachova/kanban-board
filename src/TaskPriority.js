@@ -11,33 +11,35 @@ function TaskPriority(props) {
 
     const determinePriority = () => {
         if (props.task.priority === 3) {
-            return "High";
+            return "High Priority";
         } else if (props.task.priority === 2) {
-            return "Med";
+            return "Med Priority";
         } else
-            return "Low";
+            return "Low Priority";
     };
 
     return (
-        <div>
+        <span>
+            <span className="badge badge-success">{determinePriority()}</span>
+
             {
                 props.task.priority > 1 &&
-                <button onClick={decreasePriority}
+                <button className="btn btn-outline-success btn-sm"
+                        onClick={decreasePriority}
                         disabled={props.task.priority < 2}>
-                    -
+                    <i className="fa fa-minus-circle"></i>
                 </button>
             }
-
-            <button>Priority: {determinePriority()}</button>
 
             {
                 props.task.priority < 3 &&
-                <button onClick={increasePriority}
+                <button className="btn btn-outline-success btn-sm"
+                        onClick={increasePriority}
                         disabled={props.task.priority > 2}>
-                    +
+                    <i className="fa fa-plus-circle"></i>
                 </button>
             }
-        </div>
+        </span>
     );
 }
 

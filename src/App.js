@@ -26,7 +26,7 @@ function App() {
     const addTask = (taskName) => {
         setIsAddTaskFormOpen(false);
         const updatedTasks = [...tasks];
-        updatedTasks.push({id: Math.random(), name: taskName, status: 'todo', priority: null});
+        updatedTasks.push({id: Math.random(), name: taskName, status: 'todo', priority: 3});
         setTasks(updatedTasks);
     };
 
