@@ -15,6 +15,7 @@ function TaskList(props) {
                 .sort((a, b) => b.priority - a.priority)
                 .map(el =>
                     <Task task={el}
+                          taskListStatus={props.taskListStatus}
                           increasePriority={props.increasePriority}
                           decreasePriority={props.decreasePriority}
                           deleteTask={props.deleteTask}
