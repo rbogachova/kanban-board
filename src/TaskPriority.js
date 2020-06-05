@@ -13,7 +13,7 @@ function TaskPriority(props) {
         if (props.task.priority === 3) {
             return "High";
         } else if (props.task.priority === 2) {
-            return "Medium";
+            return "Med";
         } else
             return "Low";
     };
