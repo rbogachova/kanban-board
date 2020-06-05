@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
+import TaskPriority from "./TaskPriority";
 
 function Task(props) {
     const deleteTask = () => {
@@ -16,13 +17,18 @@ function Task(props) {
     return (
         <div className="card shadow bg-white rounded">
             <div className="card-body">
-                <button>Priority: {props.task.priority}</button>
+                <TaskPriority task={props.task}
+                              plusPriority={props.plusPriority}
+                              minusPriority={props.minusPriority}/>
+
                 <p className="card-text">{props.task.name}</p>
+
                 <button type="button"
                         className="btn btn-outline-success btn-sm float-left"
                         onClick={deleteTask}>
                     <i className="fa fa-trash-o"/>
                 </button>
+
                 {
                     props.status !== 'closed' &&
                     <button type="button"
@@ -31,6 +37,7 @@ function Task(props) {
                         <i className="fa fa-arrow-right"/>
                     </button>
                 }
+
                 {
                     props.status !== 'todo' &&
                     <button type="button"

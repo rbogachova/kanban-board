@@ -83,6 +83,32 @@ function App() {
         setTasks(updatedTasks);
     };
 
+    const plusPriority = (taskId, value) => {
+        const updatedTasks = tasks.map(el => {
+            if (el.id === taskId) {
+                return {
+                    ...el,
+                    priority: value
+                }
+            } else
+                return el;
+        });
+        setTasks(updatedTasks);
+    };
+
+    const minusPriority = (taskId, value) => {
+        const updatedTasks = tasks.map(el => {
+            if (el.id === taskId) {
+                return {
+                    ...el,
+                    priority: value
+                }
+            } else
+                return el;
+        });
+        setTasks(updatedTasks);
+    };
+
     return (
         <div>
             <div className="container">
@@ -96,23 +122,31 @@ function App() {
                     <TaskList taskListName="To Do"
                               taskListStatus="todo"
                               tasks={tasks}
+                              plusPriority={plusPriority}
+                              minusPriority={minusPriority}
                               deleteTask={deleteTask}
                               moveTaskRight={moveTaskRight}/>
                     <TaskList taskListName="In Progress"
                               taskListStatus="in progress"
                               tasks={tasks}
+                              plusPriority={plusPriority}
+                              minusPriority={minusPriority}
                               deleteTask={deleteTask}
                               moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
                     <TaskList taskListName="Resolved"
                               taskListStatus="resolved"
                               tasks={tasks}
+                              plusPriority={plusPriority}
+                              minusPriority={minusPriority}
                               deleteTask={deleteTask}
                               moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
                     <TaskList taskListName="Closed"
                               taskListStatus="closed"
                               tasks={tasks}
+                              plusPriority={plusPriority}
+                              minusPriority={minusPriority}
                               deleteTask={deleteTask}
                               moveTaskLeft={moveTaskLeft}/>
                 </div>

@@ -10,10 +10,13 @@ function TaskList(props) {
                     {props.taskListName}
                 </div>
             </div>
+
             {props.tasks.filter(el => el.status === props.taskListStatus)
                 .sort((a, b) => a.priority - b.priority)
                 .map(el =>
                     <Task task={el}
+                          plusPriority={props.plusPriority}
+                          minusPriority={props.minusPriority}
                           deleteTask={props.deleteTask}
                           moveTaskLeft={props.moveTaskLeft}
                           moveTaskRight={props.moveTaskRight}/>

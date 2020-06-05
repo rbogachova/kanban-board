@@ -33,12 +33,14 @@ function NewTaskForm(props) {
                        type="text"
                        value={taskInput}
                        onChange={e => setTaskInput(e.target.value)}/>
+
                 <button type="submit"
                         className="btn btn-primary"
                         disabled={taskInput.trim().length < 4}
                         onClick={submitTask}>
                     Submit
                 </button>
+
                 <button type="button"
                         className="btn btn-secondary"
                         onClick={cancelAddTask}>
