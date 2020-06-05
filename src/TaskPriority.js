@@ -20,17 +20,23 @@ function TaskPriority(props) {
 
     return (
         <div>
-            <button onClick={decreasePriority}
-                    disabled={props.task.priority < 2}>
-                -
-            </button>
+            {
+                props.task.priority > 1 &&
+                <button onClick={decreasePriority}
+                        disabled={props.task.priority < 2}>
+                    -
+                </button>
+            }
 
             <button>Priority: {determinePriority()}</button>
 
-            <button onClick={increasePriority}
-                    disabled={props.task.priority > 2}>
-                +
-            </button>
+            {
+                props.task.priority < 3 &&
+                <button onClick={increasePriority}
+                        disabled={props.task.priority > 2}>
+                    +
+                </button>
+            }
         </div>
     );
 }
