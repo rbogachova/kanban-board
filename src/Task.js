@@ -40,7 +40,6 @@ function Task(props) {
                         <i className="fa fa-arrow-left"/>
                     </button>
                 }
-
             </div>
         </div>
     );
