@@ -9,6 +9,15 @@ function TaskPriority(props) {
         props.plusPriority(props.task.id, props.task.priority + 1);
     };
 
+    const determinePriority = () => {
+        if (props.task.priority === 3) {
+            return "High";
+        } else if (props.task.priority === 2) {
+            return "Medium";
+        } else
+            return "Low";
+    };
+
     return (
         <div>
             <button onClick={minusPriority}
@@ -16,7 +25,7 @@ function TaskPriority(props) {
                 -
             </button>
 
-            <button>Priority: {props.task.priority}</button>
+            <button>Priority: {determinePriority()}</button>
 
             <button onClick={plusPriority}
                     disabled={props.task.priority > 2}>
