@@ -21,13 +21,13 @@ function Task(props) {
                               increasePriority={props.increasePriority}
                               decreasePriority={props.decreasePriority}/>
 
-                <button type="button"
-                        className="btn btn-sm float-right"
-                        onClick={deleteTask}>
-                    x
-                </button>
-
                 <p className="card-header">{props.task.name}</p>
+
+                <button type="button"
+                        className="btn btn-sm float-left"
+                        onClick={deleteTask}>
+                    <i className="fa fa-trash-o"></i>
+                </button>
 
                 {
                     props.taskListStatus !== 'closed' &&
@@ -41,7 +41,7 @@ function Task(props) {
                 {
                     props.taskListStatus !== 'todo' &&
                     <button type="button"
-                            className="btn btn-outline-success btn-sm float-left"
+                            className="btn btn-outline-success btn-sm float-right"
                             onClick={moveTaskLeft}>
                         <i className="fa fa-arrow-left"/>
                     </button>
