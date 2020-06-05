@@ -1,19 +1,22 @@
 import React, {useState} from 'react';
 import './App.css';
+import {updateExpression} from "@babel/types";
+
+const initialTasks = [
+    {id: 1, name: 'Do Components', status: 'todo'},
+    {id: 2, name: 'Watch last lesson video', status: 'resolved'},
+    {id: 3, name: 'Learn React', status: 'in progress'},
+    {id: 4, name: 'Write Todo App from Scratch', status: 'closed'},
+    {id: 5, name: 'Make Kanban Board', status: 'todo'}
+];
 
 function App() {
+    const [tasks, setTasks] = useState(initialTasks);
     const [isOpenAddTaskForm, setIsOpenAddTaskForm] = useState(false);
     const [taskInput, setTaskInput] = useState('');
 
     const openAddTaskForm = () => {
         setIsOpenAddTaskForm(true);
-
-    };
-
-    const submitTask = () => {
-        console.log(taskInput);
-        setTaskInput('');
-        setIsOpenAddTaskForm(false);
     };
 
     const cancelAddTask = () => {
@@ -21,8 +24,35 @@ function App() {
         setTaskInput('');
     };
 
+    const submitTask = (taskName) => {
+        setTaskInput('');
+        setIsOpenAddTaskForm(false);
+        const updatedTasks = [...tasks];
+        updatedTasks.push({id: Math.random(), name: taskName, status: 'todo'});
+        setTasks(updatedTasks);
+    };
+
+    const deleteTask = (taskId) => {
+        const updatedTasks = tasks.filter(el => el.id !== taskId);
+        setTasks(updatedTasks);
+    };
+
+    const moveTaskRight = (taskId) => {
+        const updatedTasks = tasks.map(el => {
+            if (el.id === taskId) {
+                return {
+                    ...el,
+                    status: 'in progress'
+                };
+            } else
+                return el;
+        });
+        setTasks(updatedTasks);
+    };
+
+
     return (
-        <div className="App">
+        <div>
             <div className="container">
                 <h1>Kanban</h1>
 
@@ -39,7 +69,7 @@ function App() {
                     <button type="submit"
                             className="btn btn-primary"
                             disabled={taskInput.trim().length < 4}
-                            onClick={submitTask}>
+                            onClick={() => submitTask(taskInput)}>
                         Submit
                     </button>
                     <button type="button"
@@ -53,15 +83,40 @@ function App() {
                 <div className="row">
                     <div className="col-sm">
                         To Do
+                        {tasks.filter(el => el.status === 'todo').map(el =>
+                            < div className="card" key={el.id}>
+                                <div className="card-body">
+                                    <p className="card-text">{el.name}</p>
+
+                                    <button type="button"
+                                            className="btn btn-outline-success btn-sm float-left"
+                                            onClick={() => deleteTask(el.id)}>
+                                        <i className="fa fa-trash-o"/>
+                                    </button>
+
+                                    <button type="button"
+                                            className="btn btn-outline-success btn-sm float-right"
+                                            onClick={() => moveTaskRight(el.id)}>
+                                        <i className="fa fa-arrow-right"/>
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
+
                     <div className="col-sm">
                         In Progress
+                        {tasks.filter(el => el.status === 'in progress').map(el => <div key={el.id}>{el.name}</div>)}
                     </div>
+
                     <div className="col-sm">
                         Resolved
+                        {tasks.filter(el => el.status === 'resolved').map(el => <div key={el.id}>{el.name}</div>)}
                     </div>
+
                     <div className="col-sm">
                         Closed
+                        {tasks.filter(el => el.status === 'closed').map(el => <div key={el.id}>{el.name}</div>)}
                     </div>
                 </div>
             </div>
