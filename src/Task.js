@@ -18,8 +18,8 @@ function Task(props) {
         <div className="card shadow bg-white rounded">
             <div className="card-body">
                 <TaskPriority task={props.task}
-                              plusPriority={props.plusPriority}
-                              minusPriority={props.minusPriority}/>
+                              increasePriority={props.increasePriority}
+                              decreasePriority={props.decreasePriority}/>
 
                 <p className="card-text">{props.task.name}</p>
 

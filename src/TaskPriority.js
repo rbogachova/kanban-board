@@ -1,12 +1,12 @@
 import React from 'react';
 
 function TaskPriority(props) {
-    const minusPriority = () => {
-        props.minusPriority(props.task.id, props.task.priority - 1);
+    const decreasePriority = () => {
+        props.decreasePriority(props.task.id, props.task.priority - 1);
     };
 
-    const plusPriority = () => {
-        props.plusPriority(props.task.id, props.task.priority + 1);
+    const increasePriority = () => {
+        props.increasePriority(props.task.id, props.task.priority + 1);
     };
 
     const determinePriority = () => {
@@ -20,14 +20,14 @@ function TaskPriority(props) {
 
     return (
         <div>
-            <button onClick={minusPriority}
+            <button onClick={decreasePriority}
                     disabled={props.task.priority < 2}>
                 -
             </button>
 
             <button>Priority: {determinePriority()}</button>
 
-            <button onClick={plusPriority}
+            <button onClick={increasePriority}
                     disabled={props.task.priority > 2}>
                 +
             </button>
