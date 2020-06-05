@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
-import {updateExpression} from "@babel/types";
+import NewTaskForm from "./NewTaskForm";
+import TaskList from "./TaskList";
 
 const initialTasks = [
     {id: 1, name: 'Do Components', status: 'todo'},
@@ -12,21 +13,18 @@ const initialTasks = [
 
 function App() {
     const [tasks, setTasks] = useState(initialTasks);
-    const [isOpenAddTaskForm, setIsOpenAddTaskForm] = useState(false);
-    const [taskInput, setTaskInput] = useState('');
+    const [isAddTaskFormOpen, setIsAddTaskFormOpen] = useState(false);
 
     const openAddTaskForm = () => {
-        setIsOpenAddTaskForm(true);
+        setIsAddTaskFormOpen(true);
     };
 
     const cancelAddTask = () => {
-        setIsOpenAddTaskForm(false);
-        setTaskInput('');
+        setIsAddTaskFormOpen(false);
     };
 
     const submitTask = (taskName) => {
-        setTaskInput('');
-        setIsOpenAddTaskForm(false);
+        setIsAddTaskFormOpen(false);
         const updatedTasks = [...tasks];
         updatedTasks.push({id: Math.random(), name: taskName, status: 'todo'});
         setTasks(updatedTasks);
@@ -55,69 +53,32 @@ function App() {
         <div>
             <div className="container">
                 <h1>Kanban</h1>
-
-                {!isOpenAddTaskForm &&
-                <button type="button" className="btn btn-primary" onClick={openAddTaskForm}>Add task</button>
-                }
-
-                {isOpenAddTaskForm &&
-                <form>
-                    <input className="form-control form-control-sm"
-                           type="text"
-                           value={taskInput}
-                           onChange={e => setTaskInput(e.target.value)}/>
-                    <button type="submit"
-                            className="btn btn-primary"
-                            disabled={taskInput.trim().length < 4}
-                            onClick={() => submitTask(taskInput)}>
-                        Submit
-                    </button>
-                    <button type="button"
-                            className="btn btn-secondary"
-                            onClick={cancelAddTask}>
-                        Cancel
-                    </button>
-                </form>
-                }
-
+                <NewTaskForm isAddTaskFormOpen={isAddTaskFormOpen}
+                             openAddTaskForm={openAddTaskForm}
+                             cancelAddTask={cancelAddTask}
+                             submitTask={submitTask}/>
+                <hr/>
                 <div className="row">
-                    <div className="col-sm">
-                        To Do
-                        {tasks.filter(el => el.status === 'todo').map(el =>
-                            < div className="card" key={el.id}>
-                                <div className="card-body">
-                                    <p className="card-text">{el.name}</p>
-
-                                    <button type="button"
-                                            className="btn btn-outline-success btn-sm float-left"
-                                            onClick={() => deleteTask(el.id)}>
-                                        <i className="fa fa-trash-o"/>
-                                    </button>
-
-                                    <button type="button"
-                                            className="btn btn-outline-success btn-sm float-right"
-                                            onClick={() => moveTaskRight(el.id)}>
-                                        <i className="fa fa-arrow-right"/>
-                                    </button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="col-sm">
-                        In Progress
-                        {tasks.filter(el => el.status === 'in progress').map(el => <div key={el.id}>{el.name}</div>)}
-                    </div>
-
-                    <div className="col-sm">
-                        Resolved
-                        {tasks.filter(el => el.status === 'resolved').map(el => <div key={el.id}>{el.name}</div>)}
-                    </div>
-
-                    <div className="col-sm">
-                        Closed
-                        {tasks.filter(el => el.status === 'closed').map(el => <div key={el.id}>{el.name}</div>)}
-                    </div>
+                    <TaskList name="To Do"
+                              status="todo"
+                              tasks={tasks}
+                              deleteTask={deleteTask}
+                              moveTaskRight={moveTaskRight}/>
+                    <TaskList name="In Progress"
+                              status="in progress"
+                              tasks={tasks}
+                              deleteTask={deleteTask}
+                              moveTaskRight={moveTaskRight}/>
+                    <TaskList name="Resolved"
+                              status="resolved"
+                              tasks={tasks}
+                              deleteTask={deleteTask}
+                              moveTaskRight={moveTaskRight}/>
+                    <TaskList name="Closed"
+                              status="closed"
+                              tasks={tasks}
+                              deleteTask={deleteTask}
+                              moveTaskRight={moveTaskRight}/>
                 </div>
             </div>
         </div>
