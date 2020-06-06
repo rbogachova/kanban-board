@@ -36,7 +36,7 @@ function TaskPriority(props) {
                 <button className="btn btn-sm"
                         onClick={decreasePriority}
                         disabled={props.task.priority < 2}>
-                    <i className="fa fa-minus-circle"></i>
+                    <i className="fa fa-minus-circle"/>
                 </button>
             }
 
@@ -45,7 +45,7 @@ function TaskPriority(props) {
                 <button className="btn btn-sm"
                         onClick={increasePriority}
                         disabled={props.task.priority > 2}>
-                    <i className="fa fa-plus-circle"></i>
+                    <i className="fa fa-plus-circle"/>
                 </button>
             }
         </span>
