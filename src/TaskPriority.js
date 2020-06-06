@@ -18,9 +18,18 @@ function TaskPriority(props) {
             return "Low Priority";
     };
 
+    let priorityButtonClasses = 'badge btn';
+
+    if (props.task.priority === 3) {
+        priorityButtonClasses += ' btn-danger';
+    } else if (props.task.priority === 2) {
+        priorityButtonClasses += ' btn-warning';
+    } else
+        priorityButtonClasses += ' btn-success';
+
     return (
         <span>
-            <span className="badge badge-success">{determinePriority()}</span>
+            <span className={priorityButtonClasses}>{determinePriority()}</span>
 
             {
                 props.task.priority > 1 &&
