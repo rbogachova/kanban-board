@@ -112,7 +112,7 @@ function App() {
     return (
         <div>
             <div className="container">
-                <h1>Kanban board</h1>
+                <h2>Kanban board</h2>
                 <NewTaskForm isAddTaskFormOpen={isAddTaskFormOpen}
                              openAddTaskForm={openAddTaskForm}
                              cancelAddTask={cancelAddTask}
