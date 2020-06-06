@@ -2,7 +2,6 @@ import React from 'react';
 import Task from "./Task";
 
 function TaskList(props) {
-
     return (
         <div className="col-sm">
             <div className="card shadow bg-white rounded">

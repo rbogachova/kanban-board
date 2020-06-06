@@ -9,7 +9,7 @@ function TaskPriority(props) {
         props.increasePriority(props.task.id, props.task.priority + 1);
     };
 
-    const determinePriority = () => {
+    const determinePriorityWord = () => {
         if (props.task.priority === 3) {
             return "High Priority";
         } else if (props.task.priority === 2) {
@@ -29,7 +29,7 @@ function TaskPriority(props) {
 
     return (
         <span>
-            <span className={priorityButtonClasses}>{determinePriority()}</span>
+            <span className={priorityButtonClasses}>{determinePriorityWord()}</span>
 
             {
                 props.task.priority > 1 &&

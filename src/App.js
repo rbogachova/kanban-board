@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
-import './App.css';
 import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
 
 const initialTasks = [
-    {id: 1, name: 'Do Components', status: 'todo', priority: 3},
+    {id: 1, name: 'Refactor Components', status: 'todo', priority: 2},
     {id: 2, name: 'Watch Last Lesson Video', status: 'resolved', priority: 2},
-    {id: 3, name: 'Learn React', status: 'in progress', priority: 1},
-    {id: 4, name: 'Write Todo App from Scratch', status: 'closed', priority: 2},
-    {id: 5, name: 'Make Kanban Board', status: 'todo', priority: 1}
+    {id: 3, name: 'Learn React', status: 'in progress', priority: 3},
+    {id: 4, name: 'Write Todo App from Scratch', status: 'closed', priority: 1},
+    {id: 5, name: 'Make Kanban Board', status: 'todo', priority: 3}
 ];
 
 function App() {
