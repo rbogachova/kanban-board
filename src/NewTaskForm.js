@@ -21,9 +21,9 @@ function NewTaskForm(props) {
         <div>
             {!props.isAddTaskFormOpen &&
             <button type="button"
-                    className="btn btn-secondary"
+                    className="btn btn-primary"
                     onClick={openAddTaskForm}>
-                Add task
+                Add Task
             </button>
             }
 

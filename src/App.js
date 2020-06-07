@@ -111,21 +111,21 @@ function App() {
     return (
         <div>
             <div className="container">
-                <h2>Kanban board</h2>
+                <h2>Kanban Board</h2>
                 <NewTaskForm isAddTaskFormOpen={isAddTaskFormOpen}
                              openAddTaskForm={openAddTaskForm}
                              cancelAddTask={cancelAddTask}
                              addTask={addTask}/>
                 <hr/>
                 <div className="row">
-                    <TaskList taskListName="To Do"
+                    <TaskList taskListName="TO DO"
                               taskListStatus="todo"
                               tasks={tasks}
                               increasePriority={increasePriority}
                               decreasePriority={decreasePriority}
                               deleteTask={deleteTask}
                               moveTaskRight={moveTaskRight}/>
-                    <TaskList taskListName="In Progress"
+                    <TaskList taskListName="IN PROGRESS"
                               taskListStatus="in progress"
                               tasks={tasks}
                               increasePriority={increasePriority}
@@ -133,7 +133,7 @@ function App() {
                               deleteTask={deleteTask}
                               moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
-                    <TaskList taskListName="Resolved"
+                    <TaskList taskListName="RESOLVED"
                               taskListStatus="resolved"
                               tasks={tasks}
                               increasePriority={increasePriority}
@@ -141,7 +141,7 @@ function App() {
                               deleteTask={deleteTask}
                               moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
-                    <TaskList taskListName="Closed"
+                    <TaskList taskListName="CLOSED"
                               taskListStatus="closed"
                               tasks={tasks}
                               increasePriority={increasePriority}

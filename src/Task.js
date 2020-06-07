@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskPriority from "./TaskPriority";
+import './Task.css';
 
 function Task(props) {
     const deleteTask = () => {
