@@ -3,11 +3,11 @@ import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
 
 const initialTasks = [
-    {id: 1, name: 'Refactor Components', status: 'todo', priority: 2},
-    {id: 2, name: 'Watch Last Lesson Video', status: 'resolved', priority: 2},
-    {id: 3, name: 'Learn React', status: 'in progress', priority: 3},
-    {id: 4, name: 'Write Todo App from Scratch', status: 'closed', priority: 1},
-    {id: 5, name: 'Make Kanban Board', status: 'todo', priority: 3}
+    {id: 1, name: 'Task 1', status: 'todo', priority: 2},
+    {id: 2, name: 'Task 2', status: 'resolved', priority: 2},
+    {id: 3, name: 'Task 3', status: 'in progress', priority: 3},
+    {id: 4, name: 'Task 4', status: 'closed', priority: 1},
+    {id: 5, name: 'Task 5', status: 'todo', priority: 3}
 ];
 
 function App() {

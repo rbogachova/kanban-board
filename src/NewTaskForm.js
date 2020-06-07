@@ -29,13 +29,13 @@ function NewTaskForm(props) {
 
             {props.isAddTaskFormOpen &&
             <form>
-                <input className="form-control form-control-sm"
+                <input className="form-control form-control-sm mb-2"
                        type="text"
                        value={taskInput}
                        onChange={e => setTaskInput(e.target.value)}/>
 
                 <button type="submit"
-                        className="btn btn-primary"
+                        className="btn btn-primary mr-2"
                         disabled={taskInput.trim().length < 4}
                         onClick={submitTask}>
                     Submit

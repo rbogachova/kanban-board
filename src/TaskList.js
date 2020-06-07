@@ -5,7 +5,6 @@ function TaskList(props) {
     return (
         <div className="col-sm">
             <h6>{props.taskListName}</h6>
-            <div className="card shadow bg-white rounded">
 
             {props.tasks.filter(el => el.status === props.taskListStatus)
                 .sort((a, b) => b.priority - a.priority)
@@ -18,7 +17,6 @@ function TaskList(props) {
                           moveTaskLeft={props.moveTaskLeft}
                           moveTaskRight={props.moveTaskRight}/>
                 )}
-            </div>
         </div>
     );
 }

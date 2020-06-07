@@ -25,7 +25,7 @@ function Task(props) {
         priorityBorderClasses += ' border-success';
 
     return (
-        <div className="card shadow bg-white rounded">
+        <div className="card shadow bg-white rounded mb-2">
             <div className={priorityBorderClasses}>
                 <div className="card-body">
                     <TaskPriority task={props.task}
