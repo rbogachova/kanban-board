@@ -32,7 +32,7 @@ function Task(props) {
                                   increasePriority={props.increasePriority}
                                   decreasePriority={props.decreasePriority}/>
 
-                    <p className="card-header">{props.task.name}</p>
+                    <div className="card-header">{props.task.name}</div>
 
                     <button type="button"
                             className="btn btn-sm float-left"

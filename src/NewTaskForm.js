@@ -29,10 +29,25 @@ function NewTaskForm(props) {
 
             {props.isAddTaskFormOpen &&
             <form>
-                <input className="form-control form-control-sm mb-2"
-                       type="text"
-                       value={taskInput}
-                       onChange={e => setTaskInput(e.target.value)}/>
+                <div className="form-row">
+                    <div className="col-md-6 mb-3">
+                        <label htmlFor="taskName">Task</label>
+                        <input type="text"
+                               className="form-control"
+                               id="taskName"
+                               value={taskInput}
+                               onChange={e => setTaskInput(e.target.value)}/>
+                    </div>
+
+                    <div className="col-md-2 mb-3">
+                        <label htmlFor="taskPriority">Priority</label>
+                        <select className="form-control" id="taskPriority" required>
+                            <option selected>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </div>
+                </div>
 
                 <button type="submit"
                         className="btn btn-primary mr-2"

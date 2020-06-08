@@ -28,27 +28,27 @@ function TaskPriority(props) {
         priorityButtonClasses += ' btn-success';
 
     return (
-        <span>
-            <span className={priorityButtonClasses}>{determinePriorityWord()}</span>
-
+        <div>
             {
                 props.task.priority > 1 &&
                 <button className="btn btn-sm"
                         onClick={decreasePriority}
                         disabled={props.task.priority < 2}>
-                    <i className="fa fa-minus-circle"/>
+                    <i className="fa fa-minus"/>
                 </button>
             }
+
+            <div className={priorityButtonClasses}>{determinePriorityWord()}</div>
 
             {
                 props.task.priority < 3 &&
                 <button className="btn btn-sm"
                         onClick={increasePriority}
                         disabled={props.task.priority > 2}>
-                    <i className="fa fa-plus-circle"/>
+                    <i className="fa fa-plus"/>
                 </button>
             }
-        </span>
+        </div>
     );
 }
 
