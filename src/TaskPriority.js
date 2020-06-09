@@ -9,15 +9,6 @@ function TaskPriority(props) {
         props.increasePriority(props.task.id, props.task.priority + 1);
     };
 
-    const determinePriorityWord = () => {
-        if (props.task.priority === 3) {
-            return "High Priority";
-        } else if (props.task.priority === 2) {
-            return "Med Priority";
-        } else
-            return "Low Priority";
-    };
-
     let priorityButtonClasses = 'badge btn';
 
     if (props.task.priority === 3) {
@@ -26,6 +17,15 @@ function TaskPriority(props) {
         priorityButtonClasses += ' btn-warning';
     } else
         priorityButtonClasses += ' btn-success';
+
+    const determinePriorityWord = () => {
+        if (props.task.priority === 3) {
+            return "High Priority";
+        } else if (props.task.priority === 2) {
+            return "Med Priority";
+        } else
+            return "Low Priority";
+    };
 
     return (
         <div>

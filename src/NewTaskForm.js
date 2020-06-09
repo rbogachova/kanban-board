@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 function NewTaskForm(props) {
     const [taskInput, setTaskInput] = useState('');
+    const [taskPriority, setTaskPriority] = useState(3);
 
     const openAddTaskForm = () => {
         props.openAddTaskForm();
@@ -13,8 +14,9 @@ function NewTaskForm(props) {
     };
 
     const submitTask = () => {
-        props.addTask(taskInput);
+        props.addTask(taskInput, taskPriority);
         setTaskInput('');
+        setTaskPriority(3);
     };
 
     return (
@@ -41,10 +43,14 @@ function NewTaskForm(props) {
 
                     <div className="col-md-2 mb-3">
                         <label htmlFor="taskPriority">Priority</label>
-                        <select className="form-control" id="taskPriority" required>
-                            <option selected>High</option>
-                            <option>Medium</option>
-                            <option>Low</option>
+                        <select className="form-control"
+                                id="taskPriority"
+                                defaultValue={taskPriority}
+                                onChange={e => setTaskPriority(parseInt(e.target.value))}
+                                required>
+                            <option value="3">High</option>
+                            <option value="2">Medium</option>
+                            <option value="1">Low</option>
                         </select>
                     </div>
                 </div>

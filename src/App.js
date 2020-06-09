@@ -22,10 +22,10 @@ function App() {
         setIsAddTaskFormOpen(false);
     };
 
-    const addTask = (taskName) => {
+    const addTask = (taskName, taskPriority) => {
         setIsAddTaskFormOpen(false);
         const updatedTasks = [...tasks];
-        updatedTasks.push({id: Math.random(), name: taskName, status: 'todo', priority: 3});
+        updatedTasks.push({id: Math.random(), name: taskName, status: 'todo', priority: taskPriority});
         setTasks(updatedTasks);
     };
 
@@ -82,12 +82,12 @@ function App() {
         setTasks(updatedTasks);
     };
 
-    const increasePriority = (taskId, value) => {
+    const increasePriority = (taskId, taskPriority) => {
         const updatedTasks = tasks.map(el => {
             if (el.id === taskId) {
                 return {
                     ...el,
-                    priority: value
+                    priority: taskPriority
                 }
             } else
                 return el;
@@ -95,12 +95,12 @@ function App() {
         setTasks(updatedTasks);
     };
 
-    const decreasePriority = (taskId, value) => {
+    const decreasePriority = (taskId, taskPriority) => {
         const updatedTasks = tasks.map(el => {
             if (el.id === taskId) {
                 return {
                     ...el,
-                    priority: value
+                    priority: taskPriority
                 }
             } else
                 return el;

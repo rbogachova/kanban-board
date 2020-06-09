@@ -9,7 +9,8 @@ function TaskList(props) {
             {props.tasks.filter(el => el.status === props.taskListStatus)
                 .sort((a, b) => b.priority - a.priority)
                 .map(el =>
-                    <Task task={el}
+                    <Task key={el.id}
+                          task={el}
                           taskListStatus={props.taskListStatus}
                           increasePriority={props.increasePriority}
                           decreasePriority={props.decreasePriority}
