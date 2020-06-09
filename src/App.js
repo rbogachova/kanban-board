@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
+import {v4 as uuidv4} from 'uuid';
+
+uuidv4();
 
 const initialTasks = [
-    {id: 1, name: 'Task 1', status: 'todo', priority: 2},
-    {id: 2, name: 'Task 2', status: 'resolved', priority: 2},
-    {id: 3, name: 'Task 3', status: 'in progress', priority: 3},
-    {id: 4, name: 'Task 4', status: 'closed', priority: 1},
-    {id: 5, name: 'Task 5', status: 'todo', priority: 3}
+    {id: uuidv4(), name: 'Task 1', status: 'todo', priority: 2},
+    {id: uuidv4(), name: 'Task 2', status: 'resolved', priority: 2},
+    {id: uuidv4(), name: 'Task 3', status: 'in progress', priority: 3},
+    {id: uuidv4(), name: 'Task 4', status: 'closed', priority: 1},
+    {id: uuidv4(), name: 'Task 5', status: 'todo', priority: 3}
 ];
 
 function App() {
@@ -25,7 +28,7 @@ function App() {
     const addTask = (taskName, taskPriority) => {
         setIsAddTaskFormOpen(false);
         const updatedTasks = [...tasks];
-        updatedTasks.push({id: Math.random(), name: taskName, status: 'todo', priority: taskPriority});
+        updatedTasks.push({id: uuidv4(), name: taskName, status: 'todo', priority: taskPriority});
         setTasks(updatedTasks);
     };
 
