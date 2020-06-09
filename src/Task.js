@@ -40,6 +40,11 @@ function Task(props) {
                         <i className="fa fa-trash-o"/>
                     </button>
 
+                    <button type="button"
+                            className="btn btn-sm float-left">
+                        <i className="fa fa-pencil"/>
+                    </button>
+
                     {
                         props.taskListStatus !== 'closed' &&
                         <button type="button"
