@@ -30,7 +30,7 @@ function NewTaskForm(props) {
             }
 
             {props.isAddTaskFormOpen &&
-            <form>
+            <form onSubmit={submitTask}>
                 <div className="form-row">
                     <div className="col-md-6 mb-3">
                         <label htmlFor="taskName">Task</label>
@@ -45,9 +45,9 @@ function NewTaskForm(props) {
                         <label htmlFor="taskPriority">Priority</label>
                         <select className="form-control"
                                 id="taskPriority"
-                                defaultValue={taskPriority}
                                 onChange={e => setTaskPriority(parseInt(e.target.value))}
                                 required>
+                            <option selected disabled value="">Choose...</option>
                             <option value="3">High</option>
                             <option value="2">Medium</option>
                             <option value="1">Low</option>
@@ -57,8 +57,7 @@ function NewTaskForm(props) {
 
                 <button type="submit"
                         className="btn btn-primary mr-2"
-                        disabled={taskInput.trim().length < 4}
-                        onClick={submitTask}>
+                        disabled={taskInput.trim().length < 4}>
                     Submit
                 </button>
 
