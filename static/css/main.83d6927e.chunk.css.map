@@ -1,0 +1,1 @@
+{"version":3,"sources":["Task.css"],"names":[],"mappings":"AAAA,kBACI,+BACJ,CAEA,MACI,WACJ,CAEA,aACI,4BACJ","file":"main.83d6927e.chunk.css","sourcesContent":["html .border-left {\r\n    border-left-width: 4px !important;\r\n}\r\n\r\n.card {\r\n    border: none;\r\n}\r\n\r\n.card-header {\r\n    background-color: transparent;\r\n}"]}
