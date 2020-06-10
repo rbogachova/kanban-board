@@ -25,6 +25,7 @@ function TaskList(props) {
                               increasePriority={props.increasePriority}
                               decreasePriority={props.decreasePriority}
                               deleteTask={props.deleteTask}
+                              editTask={props.editTask}
                               moveTaskLeft={props.moveTaskLeft}
                               moveTaskRight={props.moveTaskRight}/>
                     )

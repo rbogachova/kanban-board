@@ -37,6 +37,19 @@ function App() {
         setTasks(updatedTasks);
     };
 
+    const editTask = (taskId, taskName) => {
+        const updatedTasks = tasks.map(el => {
+            if (el.id === taskId) {
+                return {
+                    ...el,
+                    name: taskName
+                }
+            } else
+                return el;
+        });
+        setTasks(updatedTasks);
+    };
+
     const moveTaskRight = (taskId) => {
         const updatedTasks = tasks.map(el => {
             if (el.id === taskId) {
@@ -127,6 +140,7 @@ function App() {
                               increasePriority={increasePriority}
                               decreasePriority={decreasePriority}
                               deleteTask={deleteTask}
+                              editTask={editTask}
                               moveTaskRight={moveTaskRight}/>
                     <TaskList taskListName="IN PROGRESS"
                               taskListStatus="in progress"
@@ -134,6 +148,7 @@ function App() {
                               increasePriority={increasePriority}
                               decreasePriority={decreasePriority}
                               deleteTask={deleteTask}
+                              editTask={editTask}
                               moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
                     <TaskList taskListName="RESOLVED"
@@ -142,6 +157,7 @@ function App() {
                               increasePriority={increasePriority}
                               decreasePriority={decreasePriority}
                               deleteTask={deleteTask}
+                              editTask={editTask}
                               moveTaskLeft={moveTaskLeft}
                               moveTaskRight={moveTaskRight}/>
                     <TaskList taskListName="CLOSED"
@@ -150,6 +166,7 @@ function App() {
                               increasePriority={increasePriority}
                               decreasePriority={decreasePriority}
                               deleteTask={deleteTask}
+                              editTask={editTask}
                               moveTaskLeft={moveTaskLeft}/>
                 </div>
             </div>

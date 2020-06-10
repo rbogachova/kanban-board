@@ -1,12 +1,10 @@
 import React from 'react';
 import TaskPriority from "./TaskPriority";
 import './Task.css';
+import TaskDeleteIcon from "./TaskDeleteIcon";
+import TaskEditIcon from "./TaskEditIcon";
 
 function Task(props) {
-    const deleteTask = () => {
-        props.deleteTask(props.task.id);
-    };
-
     const moveTaskRight = () => {
         props.moveTaskRight(props.task.id);
     };
@@ -34,16 +32,11 @@ function Task(props) {
 
                     <div className="card-header">{props.task.name}</div>
 
-                    <button type="button"
-                            className="btn btn-sm float-left"
-                            onClick={deleteTask}>
-                        <i className="fa fa-trash-o"/>
-                    </button>
+                    <TaskDeleteIcon deleteTask={props.deleteTask}
+                                    task={props.task}/>
 
-                    <button type="button"
-                            className="btn btn-sm float-left">
-                        <i className="fa fa-pencil"/>
-                    </button>
+                    <TaskEditIcon editTask={props.editTask}
+                                  task={props.task}/>
 
                     {
                         props.taskListStatus !== 'closed' &&
